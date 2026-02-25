@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Regulamento — 7ª Edição Corrida Zero7</title>
+
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --paper: #ffffff;
+      --ink: #111827;
+      --muted: #374151;
+      --rule: #e5e7eb;
+      --link: #0b57d0;
+      --link-hover: #0842a0;
+
+      /* “PDF feel” */
+      --a4-w: 210mm;
+      --pad-x: 18mm;
+      --pad-y: 16mm;
+
+      --title: 18pt;
+      --h2: 12.5pt;
+      --p: 11pt;
+      --small: 9.5pt;
+
+      --lh: 1.45;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1100px 700px at 20% 10%, rgba(255,255,255,.08), transparent 55%),
+                  radial-gradient(900px 600px at 80% 90%, rgba(255,255,255,.06), transparent 55%),
+                  var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      line-height: var(--lh);
+    }
+
+    .viewer{
+      min-height: 100%;
+      padding: 28px 14px 60px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .page{
+      width: var(--a4-w);
+      background: var(--paper);
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 18px 60px rgba(0,0,0,.40);
+      border-radius: 10px;
+      overflow:hidden;
+    }
+
+    .page-inner{
+      padding: var(--pad-y) var(--pad-x);
+    }
+
+    h1{
+      margin: 0 0 10px 0;
+      font-size: var(--title);
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 0 0 14px 0;
+      font-size: var(--p);
+      color: var(--muted);
+    }
+
+    hr{
+      border:0;
+      border-top: 1px solid var(--rule);
+      margin: 12px 0 14px;
+    }
+
+    h2{
+      margin: 16px 0 6px;
+      font-size: var(--h2);
+      font-weight: 700;
+    }
+
+    p{
+      margin: 0 0 10px 0;
+      font-size: var(--p);
+      color: var(--ink);
+    }
+
+    .muted{ color: var(--muted); }
+
+    a{
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      word-break: break-word;
+    }
+    a:hover{ color: var(--link-hover); }
+
+    ul{
+      margin: 6px 0 10px 18px;
+      padding: 0;
+      font-size: var(--p);
+      list-style: disc;
+    }
+    li{ margin: 4px 0; }
+
+    .sec-title{
+      display:flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .sec-num{
+      width: 22px;
+      flex: 0 0 22px;
+      font-weight: 700;
+    }
+
+    .block{
+      border-left: 3px solid var(--rule);
+      padding: 10px 12px;
+      margin: 10px 0 12px;
+      background: #fafafa;
+    }
+
+    .prizes{
+      margin: 8px 0 10px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow:hidden;
+    }
+    .prizes header{
+      padding: 10px 12px;
+      background: #f7f7f7;
+      font-weight: 700;
+      font-size: 11.5pt;
+    }
+    .prizes .rows{
+      padding: 10px 12px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      font-size: var(--p);
+    }
+
+    .plan{
+      margin-top: 10px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow:hidden;
+    }
+    .plan header{
+      padding: 10px 12px;
+      background: #f7f7f7;
+      font-weight: 700;
+      font-size: 11.5pt;
+    }
+    .plan .rows{
+      padding: 8px 12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+      font-size: var(--p);
+    }
+    .kv{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      border-bottom: 1px dashed #f0f0f0;
+      padding-bottom: 4px;
+    }
+    .kv span:first-child{ color: var(--muted); }
+    .kv span:last-child{ font-weight: 700; }
+
+    .final{
+      margin-top: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+
+    .page-footer{
+      padding: 10px var(--pad-x) 12px;
+      border-top: 1px solid var(--rule);
+      font-size: var(--small);
+      color: var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+    }
+
+    @media print{
+      body{ background:#fff; }
+      .viewer{ padding:0; }
+      .page{
+        box-shadow:none;
+        border:none;
+        border-radius:0;
+        width:auto;
+      }
+      .page-inner{ padding: 14mm 16mm; }
+      .page-footer{ display:none; }
+      a{ color:#000; }
+    }
+
+    @media (max-width: 980px){
+      .page{ width: min(100%, 980px); border-radius: 12px; }
+      :root{ --pad-x: 14px; --pad-y: 16px; }
+      .plan .rows{ grid-template-columns: 1fr; }
+      .sec-num{ width: 20px; flex-basis: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="viewer">
+    <article class="page" role="document" aria-label="Regulamento 7ª Edição Corrida Zero7">
+      <div class="page-inner">
+        <h1>Regulamento Corrida Zero7</h1>
+        <p class="subtitle">7ª edição — Zero7 Tesouraria LTDA</p>
+        <hr />
+
+        <p>
+          Este presente regulamento estabelece as condições gerais e as regras para a “Corrida Zero7”
+          oferecida pela Zero7 Tesouraria LTDA, e devem ser aceitas na sua totalidade para que a participação
+          do candidato seja aceita.
+        </p>
+        <p>
+          A presente campanha possui caráter exclusivamente competitivo entre os participantes elegíveis,
+          consistindo em uma disputa individual na qual cada concorrente, valendo-se de seus próprios
+          conhecimentos, técnicas e expertise, buscará alcançar o melhor desempenho possível dentro do período
+          estipulado neste regulamento.
+        </p>
+
+        <!-- 1 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">1.</div>
+            <h2>Requisitos para participação</h2>
+          </div>
+
+          <p>Qualquer pessoa pode participar da avaliação e corrida Zero7 desde que atenda os seguintes pré-requisitos:</p>
+          <ul>
+            <li>Pessoa física;</li>
+            <li>Maior de 18 (dezoito) anos;</li>
+            <li>
+              Adquirir o pacote do plano Sênior Growth de Avaliação durante os dias
+              <strong>26 de fevereiro a 09 de março de 2026</strong>, oferecido pela Zero7 como oferta especial e limitada
+              que estará disponível no site
+              <a href="https://zero7.com.br/seniorgrowth" target="_blank" rel="noopener noreferrer">https://zero7.com.br/seniorgrowth</a>
+            </li>
+            <li>
+              É permitida a compra de 3 planos por pessoa, sendo permitido a participação em três contas na corrida Zero7.
+              Para ranqueamento só será considerada a conta com o maior resultado financeiro.
+            </li>
+            <li>É estritamente proibido operar em nome de outra pessoa.</li>
+            <li>
+              Os ganhadores estarão cientes que deverão participar de uma CALL, a ser agendada com a equipe técnica da Zero7
+              para confirmação de identidade, bem como justificar de forma técnica os padrões utilizados nas operações vencedoras.
+              É indispensável a participação nessa reunião e a mesma deverá ser gravada com autorização do participante.
+              O não comparecimento, bem como respostas insatisfatórias aos questionamentos técnicos, tornará automaticamente
+              o candidato/ganhador eliminado da competição.
+            </li>
+            <li>Preencher as demais condições de participação deste regulamento.</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">2.</div>
+            <h2>Sobre a corrida Zero7</h2>
+          </div>
+
+          <p>
+            A corrida Zero7 acontecerá dos dias <strong>16 a 20 de Março de 2026</strong>, durante o período de funcionamento
+            da B3 para operações no mercado futuro.
+          </p>
+          <p>
+            Ao contratar o pacote do plano de avaliação Sênior Growth que será comercializado entre os dias
+            <strong>26 de fevereiro a 09 de março de 2026</strong>, estará automaticamente habilitado para iniciar suas operações
+            no dia <strong>16 de março de 2026</strong> e automaticamente inscrito para participar da corrida Zero7.
+          </p>
+
+          <p>
+            Durante a corrida Zero7 deve-se respeitar os limites de perda diária e limite de perda total, bem como o limite de
+            contratos do plano oferecido. Quanto aos ganhos, não há meta por operação, dia ou resultado final.
+          </p>
+          <p>
+            A corrida Zero7 irá premiar as 10 melhores performances financeiras realizadas entre os dias 16 a 20 de março de 2026
+            e em conformidade com os parâmetros e regras do plano da corrida.
+          </p>
+          <p>
+            A presente competição não envolve qualquer elemento de sorte ou aleatoriedade, sendo inteiramente baseada no mérito
+            individual; todos os participantes elegíveis, ao optarem por participar, estarão em condições de plena igualdade, sem
+            qualquer distinção ou favorecimento a indivíduos específicos, competindo exclusivamente com base em seus próprios
+            conhecimentos, técnicas e expertise para alcançar os melhores resultados possíveis.
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">3.</div>
+            <h2>Da premiação e divulgação do resultado</h2>
+          </div>
+
+          <p>
+            A competição será conduzida da forma mais transparente possível, com a divulgação dos resultados parciais e do resultado
+            final sendo realizada exclusivamente por meio dos canais oficiais da Zero7, garantindo à disputa os princípios de
+            transparência, seriedade e credibilidade.
+          </p>
+
+          <div class="block">
+            <p class="muted" style="margin-bottom:6px;"><strong>Divulgação parcial</strong></p>
+            <p style="margin:0;">
+              Durante os dias da corrida Zero7, será divulgado às <strong>20h</strong> no instagram oficial da Zero7
+              (<a href="https://www.instagram.com/zero7tesouraria/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/zero7tesouraria/</a>)
+              os resultados parciais da corrida, com os nomes dos 10 primeiros colocados.
+            </p>
+          </div>
+
+          <p>
+            A posição no ranking geral pode ser consultada através da sua Área do Trader
+            (<a href="https://app.zero7.com.br/" target="_blank" rel="noopener noreferrer">https://app.zero7.com.br/</a>).
+          </p>
+
+          <div class="block">
+            <p class="muted" style="margin-bottom:6px;"><strong>Resultado final</strong></p>
+            <p style="margin:0;">
+              No dia <strong>20 de março de 2026</strong>, às <strong>20:07h</strong> no canal do Youtube do Zero7
+              (<a href="https://www.youtube.com/@zero7tesouraria" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@zero7tesouraria</a>),
+              será divulgado o resultado final em uma live. Posteriormente, divulgado no instagram oficial da Zero7
+              (<a href="https://www.instagram.com/zero7tesouraria/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/zero7tesouraria/</a>).
+            </p>
+          </div>
+
+          <section class="prizes" aria-label="Premiação">
+            <header>Premiação</header>
+            <div class="rows">
+              <div><strong>1º Lugar:</strong> 25 mil em dinheiro</div>
+              <div><strong>2º Lugar:</strong> 10 mil em dinheiro</div>
+              <div><strong>3º Lugar:</strong> 5 mil em dinheiro</div>
+              <div><strong>4º ao 10º Lugar:</strong> 1 mil em dinheiro cada</div>
+            </div>
+          </section>
+
+          <p>
+            A divulgação do resultado oficial será no dia <strong>23/03/2026</strong> às <strong>20 horas</strong>, após auditoria com os ganhadores.
+          </p>
+          <p>O envio da premiação será feito em até 48 horas após a divulgação do resultado.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">4.</div>
+            <h2>Inscrição e Pagamento</h2>
+          </div>
+
+          <p>
+            Após a confirmação do pagamento, que pode levar até 2 (dois) dias úteis, o candidato receberá um e-mail com as instruções
+            necessárias para acessar sua área de trader e solicitar a sua participação da corrida Zero7.
+          </p>
+          <p>
+            A plataforma para a corrida Zero7 (conta simulação) que simulará as condições de mercado em tempo real, será enviada para
+            o e-mail cadastrado no ato da compra, um dia antes da data de início da corrida.
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">5.</div>
+            <h2>Processo da competição</h2>
+          </div>
+
+          <p>
+            O candidato é responsável por estar apto a realizar operações na bolsa de valores brasileira Brasil, Bolsa, Balcão (B3).
+            Conhecer os dias e horários de negociação na B3. Conhecer a plataforma oferecida no plano de avaliação para realizar suas
+            operações na conta demonstração que simula as cotações da B3 em tempo real.
+          </p>
+          <p>
+            O prazo da competição começará a ser contado no primeiro dia útil após a liberação do acesso à plataforma (conta simulação),
+            e o candidato terá <strong>5 dias corridos</strong> para atingir o resultado que desejar.
+          </p>
+          <p>
+            O candidato que atingir o limite de perda diária, conforme o plano estará naquele dia impedido de realizar mais operações.
+            E será automaticamente eliminado caso atinja dentro do período da corrida o limite de perda máxima conforme o plano de avaliação
+            contratado.
+          </p>
+
+          <p>
+            Para fins de competição só serão considerados os resultados obtidos através das operações feitas com os ativos descritos no plano
+            de avaliação adquirido, e abertas e encerradas no mesmo dia e nos horários estabelecidos, conhecidas como operações “day trade”.
+            É responsabilidade do trader encerrar todas suas operações <strong>17:30h</strong> (30 minutos antes do fim da negociação normal),
+            definida pela B3, obrigatoriedade esta para call de fechamento da mesa de operações. Caso ainda existam posições abertas, a Área de
+            Risco da ZERO7 terá o direito de encerrá-las automaticamente.
+          </p>
+
+          <p>
+            A plataforma simula os custos operacionais da mesma forma que na conta real. Sendo assim, o resultado contabilizado na competição
+            será o resultado líquido das operações.
+          </p>
+
+          <p class="muted">
+            A participação do indivíduo na presente competição é totalmente opcional, ficando a seu exclusivo critério aderir ou não à campanha,
+            sem qualquer obrigatoriedade. Ressaltamos que a não participação não acarretará em prejuízo algum ao plano contratado, que manterá sua
+            validade e condições normalmente, sem qualquer interferência na conta de operação.
+          </p>
+        </div>
+
+        <!-- 6 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">6.</div>
+            <h2>Plano da Corrida Zero7</h2>
+          </div>
+
+          <section class="plan" aria-label="Plano Corrida Zero7 WIN/WDO">
+            <header>Corrida Zero7 Win/Wdo</header>
+            <div class="rows">
+              <div class="kv"><span>Limite por operação</span><span>80 contratos</span></div>
+              <div class="kv"><span>Limite para WIN</span><span>50 contratos</span></div>
+              <div class="kv"><span>Limite para WDO</span><span>30 contratos</span></div>
+              <div class="kv"><span>Limite de perda diária</span><span>R$ 2.497,00</span></div>
+              <div class="kv"><span>Limite de perda total</span><span>R$ 9.997,00</span></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- 7 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">7.</div>
+            <h2>Da proteção de dados — LGPD</h2>
+          </div>
+
+          <p>
+            A Lei Geral de Proteção de Dados (LGPD) dispõe ainda que quaisquer dados de terceiros e/ou informações pessoais que possam ser obtidas
+            ou utilizadas por qualquer das partes em decorrência do presente instrumento, serão recolhidos, utilizados, armazenados e mantidos de
+            acordo com os padrões geralmente aceitos para a coleta de dados, pela legislação aplicável, qual seja a Lei 13.709/2018.
+          </p>
+        </div>
+
+        <!-- 8 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">8.</div>
+            <h2>Do regulamento</h2>
+          </div>
+
+          <p>
+            O presente regulamento tem o propósito exclusivo de informar e esclarecer algumas dúvidas acerca do funcionamento do projeto proposto
+            pela Empresa Zero7. Ambas as partes reconhecem que este documento constitui simplesmente termos nos quais concordam em seguir para o bom
+            funcionamento do projeto. Qualquer assunto não contemplado neste regulamento será discutido entre as partes, visando sempre a eficácia e
+            a eficiência do projeto. As partes concordam em cooperar e agir de boa-fé para alcançar os objetivos estabelecidos, priorizando sempre o
+            interesse mútuo e o sucesso do projeto.
+          </p>
+        </div>
+
+        <!-- 9 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">9.</div>
+            <h2>Validade do regulamento</h2>
+          </div>
+
+          <p>
+            Este regulamento estará em vigor somente durante a Corrida Zero7 oferecida de forma promocional pela ZERO7, de acordo com os critérios
+            estabelecidos pela mesma.
+          </p>
+        </div>
+
+        <!-- 10 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">10.</div>
+            <h2>Direito de imagem e exploração publicitária</h2>
+          </div>
+
+          <p>
+            O operador, neste ato, autoriza a utilização de sua imagem, de forma gratuita, pela Zero7, para fins publicitários com ou sem fins
+            lucrativos. Esta autorização abrange a reprodução, distribuição, exibição pública e qualquer outro meio de divulgação que a contratante
+            julgue conveniente para promover seus produtos ou serviços.
+          </p>
+        </div>
+
+        <!-- 11 -->
+        <div class="sec">
+          <div class="sec-title">
+            <div class="sec-num">11.</div>
+            <h2>Do aceite eletrônico</h2>
+          </div>
+
+          <p>
+            Ao aceitar eletronicamente o regulamento, o usuário reconhece e concorda expressamente que tal aceite tem o mesmo valor e efeito legal
+            que sua assinatura manuscrita. Este aceite eletrônico é considerado válido e vinculativo para todas as partes envolvidas, estabelecendo
+            um acordo formal e legal entre o usuário e <span class="muted">[nome da entidade ou empresa responsável pelo regulamento]</span>.
+            Qualquer discordância ou contestação sobre os termos do regulamento após o aceite eletrônico não afetará a validade deste acordo, salvo
+            disposição em contrário expressamente acordada por ambas as partes.
+          </p>
+
+          <p class="muted">
+            Obs: As assinaturas eletrônicas são legalmente reconhecidas no Brasil desde 2001, com a edição da Medida Provisória nº 2.200-2/2001
+            (“MP 2.200-2/2001”) — que, além de criar a Infra-Estrutura de Chaves Públicas Brasileira — ICP-Brasil, estabeleceu os critérios de validade
+            das assinaturas eletrônicas no Brasil.
+          </p>
+
+          <p class="final">
+            Declaro que li, entendi, concordo e estou ciente dos termos aqui convencionados no presente regulamento, por ser expressão da verdade aceito.
+          </p>
+        </div>
+      </div>
+
+      <div class="page-footer" aria-hidden="true">
+        <span>Zero7 Tesouraria — Regulamento</span>
+        <span>7ª Edição Corrida Zero7</span>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

@@ -17,7 +17,7 @@
   --secondy-color: #023c83;
   --orange-black: #000205;
   --gradient: linear-gradient(to right, #023c83, #0080c9);
-  --bg-black: #130405;
+  --bg-black: #000000;
   --bg-white: #f6fbff;
 
   --nav-height: 7.2rem;
@@ -53,7 +53,7 @@ html {
   }
 
   body {
-    background:var(--bg-white);
+    background:var(--bg-black);
   }
 
 

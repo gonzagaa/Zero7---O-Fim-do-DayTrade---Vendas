@@ -106,6 +106,19 @@
     gap: 2rem;
 }
 
+#pacote .card img {
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#pacote .card.dois,
+#pacote .card.tres {
+    padding-top: 15rem;
+}
+
 #pacote .card {
     background: linear-gradient(45deg, #01040A, #070C11);
     padding: 2rem;
@@ -180,9 +193,14 @@
     0 0;
 }
 
+#pacote .card .text {
+    position: relative;
+    z-index: 1;
+}
+
 #pacote .card h3 {
     color: #fff;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   
     font-family: var(--ncs);
     text-transform: uppercase;
@@ -328,7 +346,8 @@
         font-size: 1.6rem;
     }
 
-    section#pacote .card.um .text {
+    section#pacote .card.um .text,
+    section#pacote .card.quatro .text {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: start;
@@ -350,11 +369,21 @@
     section#pacote .card.dois {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-areas: "a b";
+    }
+
+    section#pacote .card.dois img {
+        grid-area: b;
     }
 
     section#pacote .card.tres {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-areas: "a b";
+    }
+
+    section#pacote .card.tres img {
+        grid-area: b;
     }
 
     section#pacote .card.tres .topics {
@@ -363,7 +392,35 @@
     }
 
     section#pacote .card.quatro {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    }
+
+    section#pacote .card.quatro p {
+        font-size: 1.8rem;
+    }   
+
+    section#pacote .card img {
+        width: 160%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: initial;
+    }
+
+    section#pacote .card.dois img {
+        right: -10%;
+
+        mask-image: linear-gradient(to left, #000, transparent);
+    }
+
+    section#pacote .card.tres img {
+        right: -30%;
+
+        mask-image: linear-gradient(to left, #000, transparent);
+
+    }
+
+    section#pacote .card.dois,
+    section#pacote .card.tres {
+        padding: 5rem;
     }
 }

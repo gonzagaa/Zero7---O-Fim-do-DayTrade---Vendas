@@ -192,9 +192,6 @@
 
 @media (min-width: 1080px) {
     section#plano {
-        margin-inline: 5%;
-        margin-bottom: 3%;
-        margin-top: 3%;
     }
 
     section#plano .box {

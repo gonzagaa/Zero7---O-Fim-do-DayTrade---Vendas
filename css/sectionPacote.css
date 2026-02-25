@@ -319,7 +319,8 @@
         font-size: 2.8rem;
     }
 
-    section#pacote .card.tres h3 br {
+    section#pacote .card.tres h3 br,
+    section#pacote .card.tres h5 br {
         display: none;
     }
 
@@ -357,6 +358,11 @@
     }
 
     section#pacote .card.tres .topics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section#pacote .card.quatro {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }

@@ -304,10 +304,17 @@
 }
 
 #pacote .card h5 span {
-    background: var(--gradient);
+    background: rgba(255, 0, 0, 0.444);
     padding: .5rem;
     line-height: 1;
     border-radius: .5rem;
+
+    text-decoration: line-through;
+}
+
+#pacote .card.quatro h5 span {
+    background: var(--gradient);
+    text-decoration: initial;
 }
 
 #pacote .card h6 {

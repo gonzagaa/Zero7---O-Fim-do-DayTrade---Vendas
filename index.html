@@ -32,6 +32,165 @@
       <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/bfe861c8-ab4c-47c1-9b5d-67742fbce12f-loader.js" ></script>
 </head>
 <body id="body" class="smooth-scroll-wrapper">
+  
+    <!-- TIMER FIXO TOPO -->
+<div id="top-offer-timer" class="top-offer-timer">
+  <div class="top-offer-timer__inner">
+    <p class="top-offer-timer__text">
+      <strong>Essa oferta se encerra em:</strong>
+    </p>
+
+    <div class="top-offer-timer__countdown" id="countdown">
+      <span class="time-group"><span id="days">10</span>d</span>
+      <span class="time-group"><span id="hours">08</span>h</span>
+      <span class="time-group"><span id="minutes">20</span>m</span>
+      <span class="time-group"><span id="seconds">30</span>s</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .top-offer-timer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .top-offer-timer__inner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    min-height: 4.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: .9rem 0;
+    text-align: center;
+  }
+
+  .top-offer-timer__text {
+    margin: 0;
+    color: #0b1623;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .top-offer-timer__text strong {
+    font-weight: 800;
+  }
+
+  .top-offer-timer__countdown {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #023c83;
+
+    background: linear-gradient(to right, #023c83, #0080c9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .top-offer-timer__countdown .time-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  body {
+    padding-top: 6.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .top-offer-timer__inner {
+      min-height: auto;
+      flex-direction: column;
+      gap: .5rem;
+      padding: .8rem 0;
+    }
+
+    .top-offer-timer__text {
+      font-size: 1.3rem;
+      white-space: normal;
+    }
+
+    .top-offer-timer__countdown {
+      font-size: 1.5rem;
+      gap: .7rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    body {
+      padding-top: 7.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-offer-timer__countdown {
+      font-size: 1.35rem;
+      gap: .6rem;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const deadline = new Date("2026-03-09T23:59:59-03:00").getTime();
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function format(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+
+      if (distance <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = format(days);
+      hoursEl.textContent = format(hours);
+      minutesEl.textContent = format(minutes);
+      secondsEl.textContent = format(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
     <header class="header black" id="home"> 
       <div class="wrapper">
         <div class="content">

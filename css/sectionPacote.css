@@ -336,6 +336,47 @@
     gap: 1rem;
 }
 
+#pacote .card.quatro {
+  position: relative;
+  overflow: hidden;
+}
+
+#pacote .card.quatro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(rgba(1, 4, 10, 0.72), rgba(1, 4, 10, 0.72)),
+    url("../assets/eua.avif") center/cover no-repeat;
+
+  opacity: 0.62;
+  z-index: 0;
+}
+
+#pacote .card.quatro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(90deg,
+      rgba(0, 40, 85, 0.18) 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      rgba(180, 20, 20, 0.10) 100%
+    );
+
+  opacity: 0.9;
+  z-index: 0;
+}
+
+#pacote .card.quatro .text {
+  position: relative;
+  z-index: 1;
+}
+
 @media (min-width: 1080px) {
     section#pacote img.bg.desktop {
         display: none;

@@ -248,6 +248,50 @@
     font-size: 2rem;
 }
 
+#home.obrigado .card.quatro {
+  position: relative;
+  overflow: hidden;
+}
+
+#home.obrigado .card.quatro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(rgba(1, 4, 10, 0.74), rgba(1, 4, 10, 0.74)),
+    url("../assets/eua.avif") center/cover no-repeat;
+
+  opacity: 0.42;
+  z-index: 0;
+}
+
+#home.obrigado .card.quatro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 46, 95, 0.20) 0%,
+      rgba(255, 255, 255, 0.02) 45%,
+      rgba(160, 18, 18, 0.12) 100%
+    );
+
+  opacity: 0.95;
+  z-index: 0;
+}
+
+#home.obrigado .card.quatro h6,
+#home.obrigado .card.quatro h4,
+#home.obrigado .card.quatro .text {
+  position: relative;
+  z-index: 1;
+}
+
 @media (min-width: 1080px) {
     header#home.obrigado {
         height: 100vh;

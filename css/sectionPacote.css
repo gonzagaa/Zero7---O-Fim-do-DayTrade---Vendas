@@ -313,8 +313,8 @@
 }
 
 #pacote .card.quatro h5 span {
-    background: var(--gradient);
-    text-decoration: initial;
+    /* background: var(--gradient);
+    text-decoration: initial; */
 }
 
 #pacote .card h6 {

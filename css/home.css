@@ -262,6 +262,34 @@
     color: #fff;
     font-weight: 400;
   }
+
+  #home .topics .topic.topic-cme {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0, 20, 43, 0.649), rgba(0, 20, 43, 0.55)),
+    url("../assets/eua.avif") center/cover no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#home.black .topics .topic.topic-cme {
+  background:
+    linear-gradient(rgba(0, 20, 43, 0.742), rgba(0, 20, 43, 0.55)),
+    url("../assets/eua.avif") center/cover no-repeat;
+}
+
+#home .topics .topic.topic-cme::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 51, 102, 0.18), rgba(255, 0, 0, 0.08));
+  pointer-events: none;
+}
+
+#home .topics .topic.topic-cme p {
+  position: relative;
+  z-index: 1;
+}
   
   @media (min-width: 1080px) {
     header#home {
